@@ -88,24 +88,23 @@ void XuatDuLieuDV()
         cout<<endl;
     }
 }
-int n = 4;
 int *gt; /// Giá trị của đồ vật
 int *tl; /// trọng lượng của đồ vật
 int *sl; /// số lượng của đồ vật
 void NhapDL()
 {
-    gt = new int [n]; /// mảng giá trị
-    tl = new int [n]; /// mảng trọng lượng
-    sl = new int [n]; /// mảng số lượng
-    for(int i=0; i<n; i++)
+    gt = new int [ndv]; /// mảng giá trị
+    tl = new int [ndv]; /// mảng trọng lượng
+    sl = new int [ndv]; /// mảng số lượng
+    for(int i=0; i<ndv; i++)
     {
         gt[i] = dv[i].getGiaTien();
     }
-    for(int i=0; i<n; i++)
+    for(int i=0; i<ndv; i++)
     {
         tl[i] = dv[i].getTrongLuong();
     }
-    for(int i=0; i<n; i++)
+    for(int i=0; i<ndv; i++)
     {
         sl[i] = dv[i].getSoLuong();
     }
@@ -113,25 +112,25 @@ void NhapDL()
 void HienThiPTGT()
 {
     cout<<"\t";
-    for(int i=0; i<n-1; i++)
+    for(int i=0; i<ndv-1; i++)
     {
         cout<<setw(3)<<gt[i]<<" X"<<i<<setw(3)<<" + ";
     }
-    cout<<setw(3)<<gt[n-1]<<" X"<<n-1<<setw(2)<<" -> Max"<<endl;
+    cout<<setw(3)<<gt[ndv-1]<<" X"<<ndv-1<<setw(2)<<" -> Max"<<endl;
 }
 void HienThiPTTL()
 {
     cout<<"\t";
-    for(int i=0; i<n-1; i++)
+    for(int i=0; i<ndv-1; i++)
     {
         cout<<setw(3)<<tl[i]<<" X"<<i<<setw(3)<<" + ";
     }
-    cout<<setw(3)<<tl[n-1]<<" X"<<n-1<<setw(3)<<" <= "<<tlMax<<endl;
+    cout<<setw(3)<<tl[ndv-1]<<" X"<<ndv-1<<setw(3)<<" <= "<<tlMax<<endl;
 }
 void HienThiSLDV()
 {
     cout<<"\nSo Luong hang: \n\n\t   ";
-    for(int i=0; i<n; i++)
+    for(int i=0; i<ndv; i++)
     {
         cout<<sl[i]<<setw(9);
     }
@@ -139,10 +138,10 @@ void HienThiSLDV()
 
 void SapXepdulieu()
 {
-    for(int i=0; i<n-1; i++)
+    for(int i=0; i<ndv-1; i++)
     {
         int ma = i;
-        for(int j=i+1; j<n; j++)
+        for(int j=i+1; j<ndv; j++)
         {
             float gt_tl_i = (float)gt[ma]/tl[ma]; /// c(i) / a(i)
             float gt_tl_i1 = (float)gt[j]/tl[j];/// c(i+1)/a(i+1)
@@ -170,8 +169,8 @@ void XuLyThuatToan()
     float triGiatui = 0; /// giá trị của túi : nuy
     int soNhanh = 0; /// số nhánh của cây
     float gMax = 0; /// giá trị gMax
-    x = new int [n]; /// mảng nghiệm của pt
-    while(i != n)
+    x = new int [ndv]; /// mảng nghiệm của pt
+    while(i != ndv)
     {
         if(i==0) /// lần đầu tiên
         {
